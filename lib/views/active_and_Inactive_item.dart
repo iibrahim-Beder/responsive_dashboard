@@ -13,22 +13,19 @@ class InactiveDrowerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-
-      child: ListTile(
+    return ListTile(
+      
+      leading: SvgPicture.asset(
+        drawerModelItem.image,
+        fit: BoxFit.scaleDown,
         
-        leading: SvgPicture.asset(
-          drawerModelItem.image,
-          fit: BoxFit.scaleDown,
-          
-        ),
-        title: FittedBox(
-          fit: BoxFit.scaleDown,
-          alignment: Alignment.centerLeft,
-          child: Text(drawerModelItem.title,
-              style: AppStyles.styleRegular16(context)),
-        )
       ),
+      title: FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Text(drawerModelItem.title,
+            style: AppStyles.styleRegular16(context)),
+      )
     );
   }
 }
@@ -44,25 +41,23 @@ class ActiveDrowerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: ListTile(
-        leading: SvgPicture.asset(
-          drawerModelItem.image,
-           fit: BoxFit.scaleDown,
-        
-        ),
-        title: FittedBox(
-           alignment: Alignment.centerLeft,
-          fit: BoxFit.scaleDown,
-          child: Text(drawerModelItem.title,
-              style: AppStyles.styleBold16(context),),
-        ),
-            trailing: Container(
-              color:  Color(0xff4EB7F2),
-              width: 3.27,
-            
-            ),
+    return ListTile(
+      leading: SvgPicture.asset(
+        drawerModelItem.image,
+         fit: BoxFit.scaleDown,
+      
       ),
+      title: FittedBox(
+         alignment: Alignment.centerLeft,
+        fit: BoxFit.scaleDown,
+        child: Text(drawerModelItem.title,
+            style: AppStyles.styleBold16(context),),
+      ),
+          trailing: Container(
+            color:  Color(0xff4EB7F2),
+            width: 3.27,
+          
+          ),
     );
   }
 }

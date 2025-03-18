@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_dash_board/core/widgets/no_scrollbar_behavior.dart';
 import 'package:responsive_dash_board/views/CustomColumnExpenseItem.dart';
 import 'package:responsive_dash_board/views/custom_row_expenseitem.dart';
 
@@ -25,25 +26,33 @@ class CustomExpenseItem extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
-              child: CustomScrollView(
-                physics: NeverScrollableScrollPhysics(),
-                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                slivers: [
-                  SliverToBoxAdapter(
-                    child: CustomRowExpenseItem(
-                      isActive: isActive,
+              child: ScrollConfiguration(
+                behavior: NoScrollbarBehavior(),
+                child: CustomScrollView(
+                  physics: NeverScrollableScrollPhysics(),
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: CustomRowExpenseItem(
+                        isActive: isActive,
+                      ),
                     ),
-                  ),
-                  SliverToBoxAdapter(
-              
-                    child: SizedBox(height: 32,),
-                  ),
-                  
-                  SliverToBoxAdapter(
-                      child: CustomColumnExpenseItem(
-                                        isActive: isActive,
-                                      ))
-                ],
+                    SliverFillRemaining(
+                      hasScrollBody: true,
+                      child: Column(children: [
+                        Expanded(
+                          child: SizedBox(
+                            height: 32,
+                          ),
+                        ),
+                        CustomColumnExpenseItem(
+                          isActive: isActive,
+                        ),
+                      
+                      ]),
+                    )
+                  ],
+                ),
               ),
             )),
       ),

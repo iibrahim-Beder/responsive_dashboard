@@ -38,8 +38,11 @@ class CustomColumnExpenseItem extends StatelessWidget {
                   style: isActive
                       ? AppStyles.styleSemiBold24(context)
                           .copyWith(color: Color(0xffFFFFFF))
-                      : AppStyles.styleSemiBold24(context))),
-        
+                      : AppStyles.styleSemiBold24(context))
+                      
+                      ),
+      
+      
         ],
       ),
     );
